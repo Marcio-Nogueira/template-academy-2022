@@ -1,0 +1,10 @@
+<div id="<%= dom_id artist %>">
+  <tr>
+    <td><%= artist.name %></td>
+    <td><%= artist.updated_at %></td>
+    <td>
+    <a href="<%= link_to  edit_artist_path(@artist)%>"><i class="bi bi-trash red" style='color: red; float: right; margin-right: 5px'></i></a>
+    <i class="bi bi-pencil" style='float: right; margin-right: 5px'></i>
+    </td>
+  </tr>
+</div>
