@@ -1,10 +1,14 @@
+<div class="modal-header">
 <p style="color: green"><%= notice %></p>
 
 <%= render @artist %>
-
-<div>
+</div>
+<div class="modal-body">
   <%= link_to "Edit this artist", edit_artist_path(@artist) %> |
   <%= link_to "Back to artists", artists_path %>
 
+</div>
+
+<div class="modal-footer">
   <%= button_to "Destroy this artist", @artist, method: :delete %>
 </div>

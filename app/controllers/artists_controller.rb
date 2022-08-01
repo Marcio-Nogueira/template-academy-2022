@@ -17,7 +17,6 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1/edit
   def edit
-    @artist = Artist.find(params[:id])
   end
 
   # POST /artists or /artists.json

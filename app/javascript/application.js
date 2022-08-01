@@ -2,3 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers/application"
 import * as bootstrap from "bootstrap"
+window.bootstrap = bootstrap
+
+
