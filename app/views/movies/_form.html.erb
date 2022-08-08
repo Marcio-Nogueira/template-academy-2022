@@ -1,0 +1,54 @@
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div div class="col-xs-4">
+    <%= form.label :title, style: "display: block", class: "mt-5" %>
+    <%= form.text_field :title, class: "dark-gray-5 form-control mb-3" %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :cover_url, style: "display: block" %>
+    <%= form.text_field :cover_url, class: "dark-gray-5 form-control mb-3" %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :published_at, style: "display: block" %>
+    <%= form.date_field :published_at, class: "dark-gray-5 form-control mb-3" %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :director, style: "display: block" %>
+    <%= form.collection_select(:director_id, Director.all, :id, :name, {:prompt => "Selecione"}, class: "dark-gray-5 form-control mb-3") %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :category, style: "display: block" %>
+    <%= form.collection_select(:cast_id, MovieGenre.all, :id, :name, {:prompt => "Selecione"}, class: "dark-gray-5 form-control mb-3") %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :sinopse, style: "display: block" %>
+    <%= form.text_area :sinopse, class: "dark-gray-5 form-control mb-3", :rows => 4 %>
+  </div>
+
+  <div div class="col-xs-4">
+    <%= form.label :cast, style: "display: block" %>
+    <%= form.collection_select(:cast_id, Artist.all, :id, :name, {:prompt => "Selecione"}, class: "dark-gray-5 form-control mb-3") %>
+  </div>
+
+  <div class="float-right">
+    <%= link_to "Cancelar", movies_path, class: "btn light-gray-3 space-button"%>
+    <%= form.submit 'Salvar', :class => 'btn primary'%>
+  </div>
+<% end %>
+
